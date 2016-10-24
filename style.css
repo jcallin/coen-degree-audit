@@ -1,0 +1,18 @@
+.cell{
+    width:120px;
+    height:25px;
+    font-size:12px;
+}
+
+.courseCell{
+    width:170px;
+}
+
+#schedule td{
+    margin-left:10px;
+
+}
+
+#schedule{
+    border:1;
+}
