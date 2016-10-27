@@ -7,9 +7,10 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="style.css">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/css/select2.min.css" rel="stylesheet" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
 
 <script src="script.js"></script>
-
 </head>
 <body>
 <div class="container-fluid">
@@ -66,7 +67,7 @@
             </tr>
             <tr>
                 <td><div id="COEN_012" class="btn btn-danger cell">COEN 12</div></td>
-                <td><div id="COEN_019" class="btn btn-danger cell">COEN 19</div></td>
+                <td><div id="MATH_051" class="btn btn-danger cell">COEN 19</div></td>
                 <td><div id="COEN_020" class="btn btn-danger cell">COEN 20</div></td>
             </tr>
              <tr>
@@ -96,9 +97,9 @@
             </tr>
             <tr><th colspan="3">Mathematics and Natural Sciences</th></tr>
             <tr>
-                <td><div id="MATH_O11" class="btn btn-danger cell">MATH 11</div></td>
-                <td><div id="MATH_O12" class="btn btn-danger cell">MATH 12</div></td>
-                <td><div id="MATH_O13" class="btn btn-danger cell">MATH 13</div></td>
+                <td><div id="MATH_011" class="btn btn-danger cell">MATH 11</div></td>
+                <td><div id="MATH_012" class="btn btn-danger cell">MATH 12</div></td>
+                <td><div id="MATH_013" class="btn btn-danger cell">MATH 13</div></td>
             </tr>
             <tr>
                 <td><div id="MATH_014" class="btn btn-danger cell">MATH 14 </div></td>
@@ -164,16 +165,7 @@
             </tr>
         </table>
     </div> <!-- col-md-4-->
-
-
 </div> <!-- row --> 
-
-<div class="row">
-<!--   <input type="submit" value="Submit">
- --></div>
-
-<footer>
-</footer>
 </div> <!-- container-fluid -->
 </body>
 
@@ -188,12 +180,19 @@
         });
     });
 
+    function changeColor() {
+        $(this).css("background", "green");
+        return false;
+    }   
 
-    document.getElementById('ENGR_001').onclick = changeColor;   
-    document.getElementById('COEN_010').onclick = changeColor;   
-    document.getElementById('COEN_011').onclick = changeColor;   
-    document.getElementById('COEN_012').onclick = changeColor;   
-    document.getElementById('COEN_019').onclick = changeColor;   
+$(document).ready(function(){
+     for(var i=0; i< course.length; i++) {
+        document.getElementById(course[i]).onclick = changeColor;   
+     }
+
+
+    // your code 
+});
     // document.getElementById('COEN_0').onclick = changeColor;   
     // document.getElementById('ENGR_001').onclick = changeColor;   
     // document.getElementById('ENGR_001').onclick = changeColor;   
@@ -210,10 +209,7 @@
     // document.getElementById('ENGR_001').onclick = changeColor;   
 
 
-    function changeColor() {
-        $(this).css("background", "green");
-        return false;
-    }   
+
 
 
     // $("#ENGR_001").on("click", function() {

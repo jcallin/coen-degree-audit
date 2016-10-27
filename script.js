@@ -9,7 +9,7 @@ var course = [
     "MATH_012",  "MATH_013",
     "MATH_014",  "MATH_053", "PHYS_031",
     "PHYS_032",  "PHYS_033", "CHEM_011", 
-    "ELEN_050",  "ELEN_153", 
+    "ELEN_050",  "ELEN_153",
     "COEN_019",  "MATH_051",  "AMTH_106",
     "MATH_022",  "AMTH_108", "MATH_122", 
     "MATH_053",  "MATH_166", 
@@ -17,6 +17,6 @@ var course = [
     "ENGL_181",  "ENGL_011A", "ENGL_011B", 
     "HIST_091",  "TESP_004", 
     "SCTR_065",  "TESP_121",  "EBGR_019", 
-    "SOCI_033", "ECON_001", 
+    "SOCI_033",  "ECON_001", 
     "ENGR_110",  "POLY_002" ];
     
