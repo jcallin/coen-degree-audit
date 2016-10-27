@@ -1,4 +1,3 @@
-// make quarter array
 var quarterArray = [
     '#1_FALL',
     '#1_WNTR',
