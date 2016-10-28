@@ -4,15 +4,19 @@
     font-size:12px;
 }
 
-.courseCell{
-    width:170px;
+.schedule tr{
+    width:400px;
 }
 
-#schedule td{
-    margin-left:10px;
-
+.schedule td{
+    height:120px;
+    width:50px;
 }
 
-#schedule{
+.schedule{
     border:1;
+}
+
+.userInput select{
+    width:200px;
 }

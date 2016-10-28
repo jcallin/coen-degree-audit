@@ -1,63 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-<link rel="stylesheet" type="text/css" href="style.css">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/css/select2.min.css" rel="stylesheet" />
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-
-
-<script src="script.js"></script>
+    <!-- latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/css/select2.min.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 </head>
 <body>
 <div class="container-fluid">
+
+<div class="jumbotron">
+    <h1> Degree Audit Form</h1>
+    <div class="userInput">
+        <select id="year"> 
+            <option> 1 </option>
+            <option> 2 </option>
+            <option> 3 </option>
+            <option> 4 </option>
+        </select>
+        <select id="quarter"> 
+            <option> fall </option>
+            <option> winter </option>
+            <option> spring </option>
+            <option> summer </option>
+        </select>
+        <select id="courseEntry"></select>
+        <button onclick="add()">Add </button>
+    </div>
+
+</div>
+
 <div class="row">
+
+
     <div class="col-md-8"> 
-        <table id="schedule" class ="asdf">
-            <tr> <th> 1st year</th> <tr>
+
+        <table class ="table schedule">
             <tr>
                 <th> Fall   </th>
                 <th> Winter </th>
                 <th> Spring </th>
                 <th> Summer </th>
             </tr>
+            <tr> <th colspan=4> 1st year</th> <tr>
             <tr>
-                <td><select id="1_FALL" class="courseCell" multiple="multiple"></select></td>
-                <td><select id="1_WNTR" class="courseCell" multiple="multiple"></select></td>
-                <td><select id="1_SPNG" class="courseCell" multiple="multiple"></select></td>
-                <td><select id="1_SUMM" class="courseCell" multiple="multiple"></select></td>
+                <td><div id="1_fall">   </div></td>
+                <td><div id="1_winter"> </div></td>
+                <td><div id="1_spring"> </div></td>
+                <td><div id="1_summer"> </div></td>
             </tr>
 
-            <tr> <th> 2nd </th></tr>
+            <tr> <th colspan=4> 2nd  Year </th></tr>
             <tr>
-                <td><select id="2_FALL" class="courseCell" multiple="multiple"></select></td>
-                <td><select id="2_WNTR" class="courseCell" multiple="multiple"></select></td>
-                <td><select id="2_SPNG" class="courseCell" multiple="multiple"></select></td>
-                <td><select id="2_SUMM" class="courseCell" multiple="multiple"></select></td>
+                <td><div id="2_fall">   </div></td>
+                <td><div id="2_winter"> </div></td>
+                <td><div id="2_spring"> </div></td>
+                <td><div id="2_summer"> </div></td>
             </tr>
-            <tr> <th> 3rd </th></tr>
+            <tr> <th colspan=4> 3rd </th></tr>
             <tr>
-                <td><select id="3_FALL" class="courseCell" multiple="multiple"></select></td>
-                <td><select id="3_WNTR" class="courseCell" multiple="multiple"></select></td>
-                <td><select id="3_SPNG" class="courseCell" multiple="multiple"></select></td>
-                <td><select id="3_SUMM" class="courseCell" multiple="multiple"></select></td>
+                <td><div id="3_fall">   </div></td>
+                <td><div id="3_winter"> </div></td>
+                <td><div id="3_spring"> </div></td>
+                <td><div id="3_summer"> </div></td>
             </tr>
-            <tr> <th> 4nd </th></tr>
+            <tr> <th colspan=4> 4nd </th></tr>
             <tr>
-                <td><select id="4_FALL" class="courseCell" multiple="multiple"></select></td>
-                <td><select id="4_WNTR" class="courseCell" multiple="multiple"></select></td>
-                <td><select id="4_SPNG" class="courseCell" multiple="multiple"></select></td>
-                <td><select id="4_SUMM" class="courseCell" multiple="multiple"></select></td>
+                <td><div id="4_fall">   </div></td>
+                <td><div id="4_winter"> </div></td>
+                <td><div id="4_spring"> </div></td>
+                <td><div id="4_summer"> </div></td>
             </tr>
-            <!-- temporary button -->
-            <tr>
-                <td><button id="submit" type="button">Test Button</button></td>
-            </tr>
-            
-            <!-- </form> -->
+            <tr> <td><button id="submit" >Submit</button></td> </tr>
+            <tr> <td><button onclick="storeData()" >asdfasdf</button></td> </tr>
         </table>
 
     </div> <!-- col-md --> 
@@ -66,107 +84,107 @@
         <table>
             <tr><th colspan="3"> Computer Science and Engineering</th></tr>
             <tr>
-                <td><div id="ENGR_001" class="btn btn-danger cell">ENGR 1 </div></td>
-                <td><div id="COEN_010" class="btn btn-danger cell">COEN 10</div></td>
-                <td><div id="COEN_011" class="btn btn-danger cell">COEN 11</div></td>
+                <td><div id="ENGR_001" class="btn btn-danger cell" value="off">ENGR 1 </div></td>
+                <td><div id="COEN_010" class="btn btn-danger cell" value="off">COEN 10</div></td>
+                <td><div id="COEN_011" class="btn btn-danger cell" value="off">COEN 11</div></td>
             </tr>
             <tr>
-                <td><div id="COEN_012" class="btn btn-danger cell">COEN 12</div></td>
-                <td><div id="MATH_051" class="btn btn-danger cell">COEN 19</div></td>
-                <td><div id="COEN_020" class="btn btn-danger cell">COEN 20</div></td>
+                <td><div id="COEN_012" class="btn btn-danger cell" value="off">COEN 12</div></td>
+                <td><div id="MATH_051" class="btn btn-danger cell" value="off">COEN 19</div></td>
+                <td><div id="COEN_020" class="btn btn-danger cell" value="off">COEN 20</div></td>
             </tr>
              <tr>
-                <td><div id="COEN_021" class="btn btn-danger cell">COEN 21</div></td>
-                <td><div id="COEN_070" class="btn btn-danger cell">COEN 070</div></td>
-                <td><div id="COEN_122" class="btn btn-danger cell">COEN 122</div></td>
+                <td><div id="COEN_021" class="btn btn-danger cell" value="off">COEN 21</div></td>
+                <td><div id="COEN_070" class="btn btn-danger cell" value="off">COEN 070</div></td>
+                <td><div id="COEN_122" class="btn btn-danger cell" value="off">COEN 122</div></td>
             </tr>
             <tr>
-                <td><div id="COEN_146" class="btn btn-danger cell">COEN 146</div></td>
-                <td><div id="COEN_171" class="btn btn-danger cell">COEN 171</div></td>
-                <td><div id="COEN_174" class="btn btn-danger cell">COEN 174</div></td>
+                <td><div id="COEN_146" class="btn btn-danger cell" value="off">COEN 146</div></td>
+                <td><div id="COEN_171" class="btn btn-danger cell" value="off">COEN 171</div></td>
+                <td><div id="COEN_174" class="btn btn-danger cell" value="off">COEN 174</div></td>
             </tr>
             <tr>
-                <td><div id="COEN_175" class="btn btn-danger cell">COEN 175</div></td>
-                <td><div id="COEN_177" class="btn btn-danger cell">COEN 177</div></td>
-                <td><div id="COEN_179" class="btn btn-danger cell">COEN 179</div></td>
+                <td><div id="COEN_175" class="btn btn-danger cell" value="off">COEN 175</div></td>
+                <td><div id="COEN_177" class="btn btn-danger cell" value="off">COEN 177</div></td>
+                <td><div id="COEN_179" class="btn btn-danger cell" value="off">COEN 179</div></td>
             </tr>
             <tr>
-                <td><div id="COEN_194" class="btn btn-danger cell">COEN 194</div></td>
-                <td><div id="COEN_195" class="btn btn-danger cell">COEN 195</div></td>
-                <td><div id="COEN_196" class="btn btn-danger cell">COEN 196</div></td>
+                <td><div id="COEN_194" class="btn btn-danger cell" value="off">COEN 194</div></td>
+                <td><div id="COEN_195" class="btn btn-danger cell" value="off">COEN 195</div></td>
+                <td><div id="COEN_196" class="btn btn-danger cell" value="off">COEN 196</div></td>
             </tr>
             <tr>
-                <td><div id="TCH_ELE1" class="btn btn-danger cell">Tech Elective 1</div></td>
-                <td><div id="TCH_ELE2" class="btn btn-danger cell">Tech Elective 2</div></td>
-                <td><div id="TCH_ELE3" class="btn btn-danger cell">Tech Elective 3</div></td>
+                <td><div id="TCH_ELE1" class="btn btn-danger cell" value="off">Tech Elective 1</div></td>
+                <td><div id="TCH_ELE2" class="btn btn-danger cell" value="off">Tech Elective 2</div></td>
+                <td><div id="TCH_ELE3" class="btn btn-danger cell" value="off">Tech Elective 3</div></td>
             </tr>
             <tr><th colspan="3">Mathematics and Natural Sciences</th></tr>
             <tr>
-                <td><div id="MATH_011" class="btn btn-danger cell">MATH 11</div></td>
-                <td><div id="MATH_012" class="btn btn-danger cell">MATH 12</div></td>
-                <td><div id="MATH_013" class="btn btn-danger cell">MATH 13</div></td>
+                <td><div id="MATH_011" class="btn btn-danger cell" value="off">MATH 11</div></td>
+                <td><div id="MATH_012" class="btn btn-danger cell" value="off">MATH 12</div></td>
+                <td><div id="MATH_013" class="btn btn-danger cell" value="off">MATH 13</div></td>
             </tr>
             <tr>
-                <td><div id="MATH_014" class="btn btn-danger cell">MATH 14 </div></td>
-                <td><div id="MATH_053" class="btn btn-danger cell">MATH 53*</div></td>
-                <td><div id="AMTH_106" class="btn btn-danger cell">AMTH 106</div></td>
+                <td><div id="MATH_014" class="btn btn-danger cell" value="off">MATH 14 </div></td>
+                <td><div id="MATH_053" class="btn btn-danger cell" value="off">MATH 53*</div></td>
+                <td><div id="AMTH_106" class="btn btn-danger cell" value="off">AMTH 106</div></td>
             </tr>
             <tr>
-                <td><div id="AMTH_108" class="btn btn-danger cell">AMTH 108</div></td>
-                <td><div id="CHEM_011" class="btn btn-danger cell">CHEM 11 </div></td>
+                <td><div id="AMTH_108" class="btn btn-danger cell" value="off">AMTH 108</div></td>
+                <td><div id="CHEM_011" class="btn btn-danger cell" value="off">CHEM 11 </div></td>
             </tr>
             <tr>
-                <td><div id="PHYS_031" class="btn btn-danger cell">PHYS 031</div></td>
-                <td><div id="PHYS_032" class="btn btn-danger cell">PHYS 032</div></td>
-                <td><div id="PHYS_033" class="btn btn-danger cell">PHYS 033</div></td>
+                <td><div id="PHYS_031" class="btn btn-danger cell" value="off">PHYS 031</div></td>
+                <td><div id="PHYS_032" class="btn btn-danger cell" value="off">PHYS 032</div></td>
+                <td><div id="PHYS_033" class="btn btn-danger cell" value="off">PHYS 033</div></td>
             </tr>
 
             <tr> <th colspan="3">Electrical Engineering</th></tr>
             <tr>
-                <td><div id="ELEN_050" class="btn btn-danger cell">ELEN 50</div></td>
-                <td><div id="ELEN_153" class="btn btn-danger cell">ELEN 153</div></td>
+                <td><div id="ELEN_050" class="btn btn-danger cell" value="off">ELEN 50</div></td>
+                <td><div id="ELEN_153" class="btn btn-danger cell" value="off">ELEN 153</div></td>
             </tr>
 
             <tr><th colspan="3"> Humanities</th></tr>
             <tr>
-                <td><div id="ENGL_181" class="btn btn-danger cell">ENGL 181</div></td>
+                <td><div id="ENGL_181" class="btn btn-danger cell" value="off">ENGL 181</div></td>
             </tr>
             <tr><th colspan="3">Core</th></tr>
             <tr>
-                <td><div id="CTW1" class="btn btn-danger cell">CTW 1</div></td>
-                <td><div id="CTW2" class="btn btn-danger cell">CTW 2</div></td>
-                <td><div id="LANG" class="btn btn-danger cell">Language</div></td>
+                <td><div id="CTW1" class="btn btn-danger cell" value="off">CTW 1</div></td>
+                <td><div id="CTW2" class="btn btn-danger cell" value="off">CTW 2</div></td>
+                <td><div id="LANG" class="btn btn-danger cell" value="off">Language</div></td>
             </tr>
             <tr>
-                <td><div id="CNI1" class="btn btn-danger cell">CNI 1</div></td>
-                <td><div id="CNI2" class="btn btn-danger cell">CNI 2</div></td>
-                <td><div id="CNI3" class="btn btn-danger cell">CNI 3</div></td>
+                <td><div id="CNI1" class="btn btn-danger cell" value="off">CNI 1</div></td>
+                <td><div id="CNI2" class="btn btn-danger cell" value="off">CNI 2</div></td>
+                <td><div id="CNI3" class="btn btn-danger cell" value="off">CNI 3</div></td>
             </tr>
             <tr>
-                <td><div id="RTC1" class="btn btn-danger cell">RTC 1</div></td>
-                <td><div id="RTC2" class="btn btn-danger cell">RTC 2</div></td>
-                <td><div id="RTC3" class="btn btn-danger cell">RTC 3</div></td>
+                <td><div id="RTC1" class="btn btn-danger cell" value="off">RTC 1</div></td>
+                <td><div id="RTC2" class="btn btn-danger cell" value="off">RTC 2</div></td>
+                <td><div id="RTC3" class="btn btn-danger cell" value="off">RTC 3</div></td>
             </tr>
             <tr>
-                <td><div id="ETHC" class="btn btn-danger cell">Ethics</div></td>
-                <td><div id="CVEG" class="btn btn-danger cell">Civic Engagement</div></td>
-                <td><div id="ARTS" class="btn btn-danger cell">Arts</div></td>
+                <td><div id="ETHC" class="btn btn-danger cell" value="off">Ethics</div></td>
+                <td><div id="CVEG" class="btn btn-danger cell" value="off">Civic Engagement</div></td>
+                <td><div id="ARTS" class="btn btn-danger cell" value="off">Arts</div></td>
             </tr>
             <tr>
-                <td><div id="NTSC" class="btn btn-danger cell">Natural Science</div></td>
-                <td><div id="DVSY" class="btn btn-danger cell">Diversity</div></td>
-                <td><div id="SOSC" class="btn btn-danger cell">Social Science</div></td>
+                <td><div id="NTSC" class="btn btn-danger cell" value="off">Natural Science</div></td>
+                <td><div id="DVSY" class="btn btn-danger cell" value="off">Diversity</div></td>
+                <td><div id="SOSC" class="btn btn-danger cell" value="off">Social Science</div></td>
             </tr>
             <tr>
-                <td><div id="ELSJ" class="btn btn-danger cell">ELSJ</div></td>
-                <td><div id="ADVW" class="btn btn-danger cell">Advance Writing</div></td>
-                <td><div id="STSS" class="btn btn-danger cell">STS</div></td>
+                <td><div id="ELSJ" class="btn btn-danger cell" value="off">ELSJ</div></td>
+                <td><div id="ADVW" class="btn btn-danger cell" value="off">Advance Writing</div></td>
+                <td><div id="STSS" class="btn btn-danger cell" value="off">STS</div></td>
             </tr>
             <tr><th colspan="3"> Educational Enrichment Electives</th></tr>
             <tr>
-                <td><div class="btn btn-danger cell">??? </div></td>
-                <td><div class="btn btn-danger cell">??? </div></td>
-                <td><div class="btn btn-danger cell">??? </div></td>
+                <td><div class="btn btn-danger cell" value="off">??? </div></td>
+                <td><div class="btn btn-danger cell" value="off">??? </div></td>
+                <td><div class="btn btn-danger cell" value="off">??? </div></td>
             </tr>
         </table>
     </div> <!-- col-md-4-->
@@ -178,50 +196,6 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"> </script>
 <script src="https://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.min.js"></script>
-<script type="text/javascript">
-    $(document).ready(function() {
-        $(".courseCell").select2({
-            data:course
-        });
-    });
-
-    function changeColor() {
-        $(this).css("background", "green");
-        return false;
-    }   
-
-$(document).ready(function(){
-     for(var i=0; i< course.length; i++) {
-        document.getElementById(course[i]).onclick = changeColor;   
-     }
-
-
-    // your code 
-});
-    // document.getElementById('COEN_0').onclick = changeColor;   
-    // document.getElementById('ENGR_001').onclick = changeColor;   
-    // document.getElementById('ENGR_001').onclick = changeColor;   
-    // document.getElementById('ENGR_001').onclick = changeColor;   
-    // document.getElementById('ENGR_001').onclick = changeColor;   
-    // document.getElementById('ENGR_001').onclick = changeColor;   
-    // document.getElementById('ENGR_001').onclick = changeColor;   
-    // document.getElementById('ENGR_001').onclick = changeColor;   
-    // document.getElementById('ENGR_001').onclick = changeColor;   
-    // document.getElementById('ENGR_001').onclick = changeColor;   
-    // document.getElementById('ENGR_001').onclick = changeColor;   
-    // document.getElementById('ENGR_001').onclick = changeColor;   
-    // document.getElementById('ENGR_001').onclick = changeColor;   
-    // document.getElementById('ENGR_001').onclick = changeColor;   
-
-
-
-
-
-    // $("#ENGR_001").on("click", function() {
-    //     $(this).
-    // })
-</script>
-<script src="requirements.js"></script>
-<script src="client.js"></script>
+<script src="script.js"></script>
 
 </html>
