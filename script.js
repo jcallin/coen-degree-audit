@@ -144,6 +144,7 @@ function add(){
     // '<div title="' + code + '" ' +  'onClick="removeCourse(this)">' + c + '</div>' + "\n";
     '<div data-quarter="' + code + '" data-courseid="' + c + '" onClick="removeCourse(this)">' + c + '</div>' + "\n";
 
+    checkRequirements(c);
 }
   
 function removeCourse(obj){
@@ -161,7 +162,12 @@ function removeCourse(obj){
         data[quarter].splice(index, 1);
     }
     $(obj).remove();
+
+    $.each(requirements[courseToBeDeleted], function(index,value) {
+        setToRed(value);
+    })
 }
+
 
 // $(document).ready(function() {
 //     for(var i = 0; i < course.length; i++) {
