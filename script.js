@@ -166,14 +166,14 @@ function setRed(value) {
 }
 
 function storeData(){
-    document.cookie = JSON.stringify(data);
+    $.cookie('coen_data', JSON.stringify(data))
 }
 
 function loadData(){
-    var cookieData = $.parseJSON(document.cookie);
+    var cookieData = JSON.parse($.cookie('coen_data'));
     alert(cookieData);
     for(var i = 0; i < cookieData.length; i++){
-        data.push(c);
+        data.push(cookieData[i]);
         document.getElementById("list").innerHTML += '<li id="data_' + c + '" onclick="removeCourse(this)">' + c + '</li>' + "\n";
     }
     checkRequirements();
