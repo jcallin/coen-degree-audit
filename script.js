@@ -34,7 +34,7 @@ var requirements = {
     "COEN_194":["COEN_194", 
                 "STSS", 
                 "ARTS",
-                "CVEN",
+                "CVEG",
                 "LANG",
                 "MATH"],
     "COEN_195":["COEN_195"],
