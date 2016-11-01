@@ -34,7 +34,7 @@ var requirements = {
     "COEN_194":["COEN_194", 
                 "STSS", 
                 "ARTS",
-                "CVEN",
+                "CVEG",
                 "LANG",
                 "MATH"],
     "COEN_195":["COEN_195"],
@@ -176,7 +176,6 @@ function setRed(value) {
     document.getElementById(value).classList.add('btn-danger');
 }
 
-// allows the required cell to be toggled, red or green
 function toggleColor(a){
     var id = a.id;
     if(document.getElementById(id).classList.contains('btn-success')){
