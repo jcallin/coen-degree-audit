@@ -217,14 +217,12 @@ function getCookie(c_name) {
 function storeData(){
     var json_str = JSON.stringify(data);
     var json = "'" + json_str + "'"
-    alert(json);
     createCookie('degree_cookie', json);
 }
 
 function loadData(){
     var cookieString =  getCookie('degree_cookie');
     // cookieString = cookieString.substring(1, cookieString.length -1);
-    alert(cookieString);
     for(var i = 3; i < cookieString.length - 1;){
         var c = cookieString.substring(i, i + 8);
         data.push(c);
