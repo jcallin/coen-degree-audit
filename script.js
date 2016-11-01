@@ -107,11 +107,12 @@ var requirements = {
     "COEN_163":["TCH_ELE3"]
 };
 
-
+// Always running
 $(document).ready(function() { 
     $("#courseEntry").select2({data:course})
 });
 
+// Add a new class to the data array and change the color of the cell 
 function add(){
     var c = $("#courseEntry").select2().val();
     data.push(c);
@@ -119,12 +120,13 @@ function add(){
     checkRequirements();
 }
 
-
-  
+// When a course (by id) is removed, it is removed from the data 
+// array and the color of the req-cell is then turned to red. 
 function removeCourse(obj){
     var temp = obj.id;
     var id = temp.substring(5,temp.length);
-    alert(id);
+
+    // get the index of the course in the array
     var index = -1;
     for(var i = 0; i < data.length; i++){
         if(id == data[i]){
@@ -132,11 +134,17 @@ function removeCourse(obj){
         }
     }
     if(index != -1) {
-        data.splice(index, 1);
+        data.splice(index, 1); // removes the data from the array 
     }
-    removeRequirement(id);
-    $(obj).remove();
-    checkRequirements();
+
+    // sets the reqCell to red
+    removeRequirement(id); 
+
+    // removes the course from the list of taken courses
+    $(obj).remove(); 
+
+    // checks incase the removed class fulfilled two requirements 
+    checkRequirements(); 
 }
 
 
@@ -149,45 +157,26 @@ function checkRequirements(){
     }
 }
 
+// sets the required cell to red
 function removeRequirement(obj){
     $.each(requirements[obj], function(index,value) {
         setRed(value);
     })
 }
 
+// sets a required cell to green
 function setGreen(value) {
     document.getElementById(value).classList.remove('btn-danger');
     document.getElementById(value).classList.add('btn-success');
 }
 
+// sets a required cell to red
 function setRed(value) {
     document.getElementById(value).classList.remove('btn-success');
     document.getElementById(value).classList.add('btn-danger');
 }
 
-function storeData(){
-    $.cookie('coen_data', JSON.stringify(data))
-}
-
-function loadData(){
-    var cookieData = JSON.parse($.cookie('coen_data'));
-    alert(cookieData);
-    for(var i = 0; i < cookieData.length; i++){
-        data.push(cookieData[i]);
-        document.getElementById("list").innerHTML += '<li id="data_' + c + '" onclick="removeCourse(this)">' + c + '</li>' + "\n";
-    }
-    checkRequirements();
-}
-
-
-$(document).ready(function() {
-    loadData();
-
-     for(var i = 0; i < course.length; i++) {
-     }
-});
-
-
+// allows the required cell to be toggled, red or green
 function toggleColor(a){
     var id = a.id;
     if(document.getElementById(id).classList.contains('btn-success')){
@@ -197,8 +186,52 @@ function toggleColor(a){
     }
 }
 
+var createCookie = function(name, value, days) {
+    var expires;
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toGMTString();
+    }
+    else {
+        expires = "";
+    }
+    document.cookie = name + "=" + value + expires + "; path=/";
+}
+
+function getCookie(c_name) {
+    if (document.cookie.length > 0) {
+        c_start = document.cookie.indexOf(c_name + "=");
+        if (c_start != -1) {
+            c_start = c_start + c_name.length + 1;
+            c_end = document.cookie.indexOf(";", c_start);
+            if (c_end == -1) {
+                c_end = document.cookie.length;
+            }
+            return unescape(document.cookie.substring(c_start, c_end));
+        }
+    }
+    return "";
+}
 
 
+function storeData(){
+    var json_str = JSON.stringify(data);
+    var json = "'" + json_str + "'"
+    alert(json);
+    createCookie('degree_cookie', json);
+}
 
-
+function loadData(){
+    var cookieString =  getCookie('degree_cookie');
+    // cookieString = cookieString.substring(1, cookieString.length -1);
+    alert(cookieString);
+    for(var i = 3; i < cookieString.length - 1;){
+        var c = cookieString.substring(i, i + 8);
+        data.push(c);
+        i += 11;
+        document.getElementById("list").innerHTML += '<li id="data_' + c + '" onclick="removeCourse(this)">' + c + '</li>' + "\n";
+    }
+    checkRequirements();
+}
 
