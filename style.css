@@ -1,20 +1,7 @@
 .cell{
-    width:120px;
-    height:25px;
-    font-size:12px;
-}
-
-.schedule tr{
-    width:400px;
-}
-
-.schedule td{
-    height:120px;
-    width:50px;
-}
-
-.schedule{
-    border:1;
+    width:100px;
+    height:22px;
+    font-size:10px;
 }
 
 .userInput select{

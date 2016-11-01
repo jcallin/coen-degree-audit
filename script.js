@@ -182,8 +182,20 @@ function loadData(){
 
 $(document).ready(function() {
     loadData();
+
+     for(var i = 0; i < course.length; i++) {
+     }
 });
 
+
+function toggleColor(a){
+    var id = a.id;
+    if(document.getElementById(id).classList.contains('btn-success')){
+        setRed(id);
+    }else{
+        setGreen(id);
+    }
+}
 
 
 
