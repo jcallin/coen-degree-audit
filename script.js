@@ -166,11 +166,11 @@ function setRed(value) {
 }
 
 function storeData(){
-    $.cookie('coen_data', JSON.stringify(data))
+    Cookies.set('coen_data', JSON.stringify(data))
 }
 
 function loadData(){
-    var cookieData = JSON.parse($.cookie('coen_data'));
+    var cookieData = JSON.parse(Cookies.get('coen_data'));
     alert(cookieData);
     for(var i = 0; i < cookieData.length; i++){
         data.push(cookieData[i]);
