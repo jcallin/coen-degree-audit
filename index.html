@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-
     <!-- Local  -->
     <script src="./js/script.js"></script>
     <script src="./js/data.js"></script>
@@ -18,25 +17,24 @@
     <link rel="stylesheet" type="text/css" href="./css/style.css">
 </head>
 
-<body onload="loadCookie()">
+<body onload="loadData()">
 
 <div class="container">
 
 <div class="jumbotron">
     <div class="row">
-        <div class="col-md-4"> </div> <!-- col --> 
         <div class="col-md-4">
-
+        </div> <!-- col --> 
+        <div class="col-md-4">
             <div class="input-group">
                 <input id="input" type="text" class="form-control" placeholder="COEN_010" aria-describedby="basic-addon1">
                 <div class="input-group-btn">
                     <button class="btn btn-default" onclick="addFromTextbox()"> Add </button>
                 </div>
-
-            </div>
-
+            </div> <!-- input group --> 
         </div> <!-- col --> 
-        <div class="col-md-4"> </div> <!-- col --> 
+        <div class="col-md-4"> 
+        </div> <!-- col --> 
     </div> <!-- row --> 
 </div>
 
@@ -83,6 +81,7 @@
         </div> <!-- col --> 
 
         <div class="col-md-6">
+            <h3> Requirements </h3>
             <div id="ADVW"></div>
             <div id="ARTS"></div>
             <div id="STSS"></div>
@@ -110,10 +109,7 @@
             <br> 
             <ul id="EEE"> </ul>
         <div> <!-- col --> 
-
     </div> <!-- row --> 
 </div> <!-- container -->
-
-
 </body>
 </html>

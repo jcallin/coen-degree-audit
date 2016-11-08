@@ -7,7 +7,6 @@
 // Stores all classes that the user has selected
 var data = [];
 
-
 // Array of all classes that are required for the COEN Major
 var coursesCoenMajor = [
     "COEN_010", "COEN_011", "COEN_012", "COEN_019", "COEN_020", "COEN_021", "COEN_070", "COEN_122", 

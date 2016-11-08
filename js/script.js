@@ -1,7 +1,7 @@
 /**
  * file         script.js
  *
- * description  asdf
+ * description  
  */
 
 // returns whether or not the parameter is array of coursesCoenMajor
@@ -20,7 +20,7 @@ function addData(id){
     console.log("Add to Data: " + id);
 }
 
-// Removes specifed course id from the array
+// Removes specified course id from the array
 function removeData(id){
     var index = -1;
     for(var i = 0; i < data.length; i++){
@@ -37,7 +37,7 @@ function removeData(id){
 
 // Check box -----------------------------------------------------------------
 
-// returns if the checkbox of the given course id is checked or not
+// returns if the check box of the given course id is checked or not
 function isChecked(id){
     if(document.getElementById(id).checked){
         return true;
@@ -65,9 +65,10 @@ function toggle(obj){
     classLogic();
 }
 
+// Requirements List -------------------------------------------------------------
 
 
-// Sets the required text to green and creates a clickable class (click to remove) 
+// Sets the required text to green and creates a click-able class (click to remove) 
 function setGreen(req, id){
     document.getElementById(req).innerHTML += 
     " - " +  '<small class="requirement" id="' + id + '"onclick="removeListElement(this)">' + id + '</small> \n';
@@ -87,15 +88,8 @@ function addFromTextbox(){
     classLogic();
 }
 
-function removeFromTextbox(){
-    var input = document.getElementById('input').value;
-    removeData(input);
-    classLogic();
-}
 
-
-
-
+// Main Logic -------------------------------------------------------------
 
 function classLogic(){
     reset();
@@ -307,8 +301,6 @@ function removeListElement(obj){
     $(obj).remove();
     classLogic();
 }
-
-
 
 // reset 
 function reset(){
