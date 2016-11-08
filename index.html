@@ -1,191 +1,119 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
- 
-<!-- Bootstrap Library-->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>COEN Degree Audit</title>
 
-<!-- Select2 -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.min.js"></script>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/css/select2.min.css" rel="stylesheet" />
+    <!-- jQuery Library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
-<!-- Local -->
-<link rel="stylesheet" type="text/css" href="style.css">
-<script src="script.js"></script>
-<script src="data.js"></script>
+    <!-- Bootstrap Library-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<title>COEN Degree Audit</title>
+
+    <!-- Local  -->
+    <script src="./js/script.js"></script>
+    <script src="./js/data.js"></script>
+    <script src="./js/storage.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
 </head>
 
-<body>
-    <nav class="navbar navbar-default">
-        <div class="container">
-            <div class="navbar-header">
-                <a class="navbar-brand">Degree Audit Form</a>
-            </div>
-        <ul class="nav navbar-nav navbar-right">
-            <li> <a data-toggle="modal" data-target="#myModal"> Help </a></li>
-            <li><a onclick="storeData()" class="btn btn-"><span class="glyphicon glyphicon-upload"></span> Save Cookie</a></li>
-            <li><a onclick="loadData()"><span class="glyphicon glyphicon-download"></span> Load Cookie</a></li>
-        </ul>
-        </div>
-    </nav>
+<body onload="loadCookie()">
 
 <div class="container">
 
+<div class="jumbotron">
+    <div class="row">
+        <div class="col-md-4"> </div> <!-- col --> 
+        <div class="col-md-4">
 
-<div class="row">
-    <div class="col-md-6"> 
-        <div class= "well well-lg">
+            <div class="input-group">
+                <input id="input" type="text" class="form-control" placeholder="COEN_010" aria-describedby="basic-addon1">
+                <div class="input-group-btn">
+                    <button class="btn btn-default" onclick="addFromTextbox()"> Add </button>
+                </div>
 
-        <div class="userInput">
-            <select id="courseEntry"></select>
-            <button onclick="add()" class="btn btn-default">Add </button>
-         </div>
-        <ul id ="list"> </ul>
-        </div>
-    </div> <!-- col-md --> 
-
-    <div class="col-md-6"> 
-    <div class="well well-lg">
-        <table>
-
-            <tr><th colspan="3"> Computer Science and Engineering</th></tr>
-            <tr>
-                <td><div id="ENGR_001" class="btn btn-danger cell" onclick="toggleColor(this)">ENGR 1 </div></td>
-                <td><div id="COEN_010" class="btn btn-danger cell" onclick="toggleColor(this)">COEN 10</div></td>
-                <td><div id="COEN_011" class="btn btn-danger cell" onclick="toggleColor(this)">COEN 11</div></td>
-            </tr>
-            <tr>
-                <td><div id="COEN_012" class="btn btn-danger cell" onclick="toggleColor(this)">COEN 12</div></td>
-                <td><div id="MATH_051" class="btn btn-danger cell" onclick="toggleColor(this)">COEN 19</div></td>
-                <td><div id="COEN_020" class="btn btn-danger cell" onclick="toggleColor(this)">COEN 20</div></td>
-            </tr>
-             <tr>
-                <td><div id="COEN_021" class="btn btn-danger cell" onclick="toggleColor(this)">COEN 21</div></td>
-                <td><div id="COEN_070" class="btn btn-danger cell" onclick="toggleColor(this)">COEN 070</div></td>
-                <td><div id="COEN_122" class="btn btn-danger cell" onclick="toggleColor(this)">COEN 122</div></td>
-            </tr>
-            <tr>
-                <td><div id="COEN_146" class="btn btn-danger cell" onclick="toggleColor(this)">COEN 146</div></td>
-                <td><div id="COEN_171" class="btn btn-danger cell" onclick="toggleColor(this)">COEN 171</div></td>
-                <td><div id="COEN_174" class="btn btn-danger cell" onclick="toggleColor(this)">COEN 174</div></td>
-            </tr>
-            <tr>
-                <td><div id="COEN_175" class="btn btn-danger cell" onclick="toggleColor(this)">COEN 175</div></td>
-                <td><div id="COEN_177" class="btn btn-danger cell" onclick="toggleColor(this)">COEN 177</div></td>
-                <td><div id="COEN_179" class="btn btn-danger cell" onclick="toggleColor(this)">COEN 179</div></td>
-            </tr>
-            <tr>
-                <td><div id="COEN_194" class="btn btn-danger cell" onclick="toggleColor(this)">COEN 194</div></td>
-                <td><div id="COEN_195" class="btn btn-danger cell" onclick="toggleColor(this)">COEN 195</div></td>
-                <td><div id="COEN_196" class="btn btn-danger cell" onclick="toggleColor(this)">COEN 196</div></td>
-            </tr>
-            <tr>
-                <td><div id="TCH_ELE1" class="btn btn-danger cell" onclick="toggleColor(this)">Tech Elective 1</div></td>
-                <td><div id="TCH_ELE2" class="btn btn-danger cell" onclick="toggleColor(this)">Tech Elective 2</div></td>
-                <td><div id="TCH_ELE3" class="btn btn-danger cell" onclick="toggleColor(this)">Tech Elective 3</div></td>
-            </tr>
-            <tr><th colspan="3">Mathematics and Natural Sciences</th></tr>
-            <tr>
-                <td><div id="MATH_011" class="btn btn-danger cell" onclick="toggleColor(this)">MATH 11</div></td>
-                <td><div id="MATH_012" class="btn btn-danger cell" onclick="toggleColor(this)">MATH 12</div></td>
-                <td><div id="MATH_013" class="btn btn-danger cell" onclick="toggleColor(this)">MATH 13</div></td>
-            </tr>
-            <tr>
-                <td><div id="MATH_014" class="btn btn-danger cell" onclick="toggleColor(this)">MATH 14 </div></td>
-                <td><div id="MATH_053" class="btn btn-danger cell" onclick="toggleColor(this)">MATH 53*</div></td>
-                <td><div id="AMTH_106" class="btn btn-danger cell" onclick="toggleColor(this)">AMTH 106</div></td>
-            </tr>
-            <tr>
-                <td><div id="AMTH_108" class="btn btn-danger cell" onclick="toggleColor(this)">AMTH 108</div></td>
-                <td><div id="CHEM_011" class="btn btn-danger cell" onclick="toggleColor(this)">CHEM 11 </div></td>
-            </tr>
-            <tr>
-                <td><div id="PHYS_031" class="btn btn-danger cell" onclick="toggleColor(this)">PHYS 031</div></td>
-                <td><div id="PHYS_032" class="btn btn-danger cell" onclick="toggleColor(this)">PHYS 032</div></td>
-                <td><div id="PHYS_033" class="btn btn-danger cell" onclick="toggleColor(this)">PHYS 033</div></td>
-            </tr>
-
-            <tr> <th colspan="2">Electrical Engineering</th> 
-                 <th> Humanities</th></tr>
-            <tr>
-                <td><div id="ELEN_050" class="btn btn-danger cell" onclick="toggleColor(this)">ELEN 50</div></td>
-                <td><div id="ELEN_153" class="btn btn-danger cell" onclick="toggleColor(this)">ELEN 153</div></td>
-                <td><div id="ENGL_181" class="btn btn-danger cell" onclick="toggleColor(this)">ENGL 181</div></td>
-
-            </tr>
-
-            <tr><th colspan="3">Core</th></tr>
-            <tr>
-                <td><div id="CTW1" class="btn btn-danger cell" onclick="toggleColor(this)">CTW 1</div></td>
-                <td><div id="CTW2" class="btn btn-danger cell" onclick="toggleColor(this)">CTW 2</div></td>
-                <td><div id="LANG" class="btn btn-danger cell" onclick="toggleColor(this)">Language</div></td>
-            </tr>
-            <tr>
-                <td><div id="CNI1" class="btn btn-danger cell" onclick="toggleColor(this)">CNI 1</div></td>
-                <td><div id="CNI2" class="btn btn-danger cell" onclick="toggleColor(this)">CNI 2</div></td>
-                <td><div id="CNI3" class="btn btn-danger cell" onclick="toggleColor(this)">CNI 3</div></td>
-            </tr>
-            <tr>
-                <td><div id="RTC1" class="btn btn-danger cell" onclick="toggleColor(this)">RTC 1</div></td>
-                <td><div id="RTC2" class="btn btn-danger cell" onclick="toggleColor(this)">RTC 2</div></td>
-                <td><div id="RTC3" class="btn btn-danger cell" onclick="toggleColor(this)">RTC 3</div></td>
-            </tr>
-            <tr>
-                <td><div id="ETHC" class="btn btn-danger cell" onclick="toggleColor(this)">Ethics</div></td>
-                <td><div id="CVEG" class="btn btn-danger cell" onclick="toggleColor(this)">Civic Engagement</div></td>
-                <td><div id="ARTS" class="btn btn-danger cell" onclick="toggleColor(this)">Arts</div></td>
-            </tr>
-            <tr>
-                <td><div id="NTSC" class="btn btn-danger cell" onclick="toggleColor(this)">Natural Science</div></td>
-                <td><div id="DVSY" class="btn btn-danger cell" onclick="toggleColor(this)">Diversity</div></td>
-                <td><div id="SOSC" class="btn btn-danger cell" onclick="toggleColor(this)">Social Science</div></td>
-            </tr>
-            <tr>
-                <td><div id="ELSJ" class="btn btn-danger cell" onclick="toggleColor(this)">ELSJ</div></td>
-                <td><div id="ADVW" class="btn btn-danger cell" onclick="toggleColor(this)">Advance Writing</div></td>
-                <td><div id="STSS" class="btn btn-danger cell" onclick="toggleColor(this)">STS</div></td>
-            </tr>
-            <tr><th colspan="3"> Educational Enrichment Electives</th></tr>
-            <tr>
-                <td><div id="EEE1" class="btn btn-danger cell" onclick="toggleColor(this)">???</div></td>
-                <td><div id="EEE2" class="btn btn-danger cell" onclick="toggleColor(this)">???</div></td>
-                <td><div id="EEE3" class="btn btn-danger cell" onclick="toggleColor(this)">???</div></td>
-            </tr>
-        </table>
-        </div>
-    </div> <!-- col-md-4-->
-</div> <!-- row --> 
-
-
-
-<!-- Modal -->
-<div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Modal Header</h4>
             </div>
-            <div class="modal-body">
-                <p>This is the COEN Degree Audit checker. 
 
-                Instructions on how to use </p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-
-    </div>
+        </div> <!-- col --> 
+        <div class="col-md-4"> </div> <!-- col --> 
+    </div> <!-- row --> 
 </div>
 
+    <div class="row">
+        <div class="col-md-3">
+            <div> <input onclick="toggle(this)" type="checkbox" id="COEN_010"> <label> COEN  10 </label> </div>
+            <div> <input onclick="toggle(this)" type="checkbox" id="COEN_011"> <label> COEN  11 </label> </div>
+            <div> <input onclick="toggle(this)" type="checkbox" id="COEN_012"> <label> COEN  12 </label> </div>
+            <div> <input onclick="toggle(this)" type="checkbox" id="COEN_019"> <label> COEN  19 </label> </div>
+            <div> <input onclick="toggle(this)" type="checkbox" id="COEN_020"> <label> COEN  20 </label> </div>
+            <div> <input onclick="toggle(this)" type="checkbox" id="COEN_021"> <label> COEN  21 </label> </div>
+            <div> <input onclick="toggle(this)" type="checkbox" id="COEN_070"> <label> COEN  70 </label> </div>
+            <div> <input onclick="toggle(this)" type="checkbox" id="COEN_122"> <label> COEN 122 </label> </div>
+            <div> <input onclick="toggle(this)" type="checkbox" id="COEN_146"> <label> COEN 146 </label> </div>
+            <div> <input onclick="toggle(this)" type="checkbox" id="COEN_171"> <label> COEN 171 </label> </div>
+            <div> <input onclick="toggle(this)" type="checkbox" id="COEN_174"> <label> COEN 174 </label> </div>
+            <div> <input onclick="toggle(this)" type="checkbox" id="COEN_175"> <label> COEN 175 </label> </div>
+            <div> <input onclick="toggle(this)" type="checkbox" id="COEN_177"> <label> COEN 177 </label> </div>
+            <div> <input onclick="toggle(this)" type="checkbox" id="COEN_179"> <label> COEN 179 </label> </div>
+            <div> <input onclick="toggle(this)" type="checkbox" id="COEN_194"> <label> COEN 194 </label> </div>
+            <div> <input onclick="toggle(this)" type="checkbox" id="COEN_195"> <label> COEN 195 </label> </div>
+            <div> <input onclick="toggle(this)" type="checkbox" id="COEN_196"> <label> COEN 196 </label> </div>
+            <br> 
+            <div> <input onclick="toggle(this)" type="checkbox" id="MATH_011"> <label> MATH  11 </label> </div>
+            <div> <input onclick="toggle(this)" type="checkbox" id="MATH_012"> <label> MATH  12 </label> </div>
+            <div> <input onclick="toggle(this)" type="checkbox" id="MATH_013"> <label> MATH  13 </label> </div>
+            <div> <input onclick="toggle(this)" type="checkbox" id="MATH_014"> <label> MATH  14 </label> </div>
+            <div> <input onclick="toggle(this)" type="checkbox" id="MATH_053"> <label> MATH  53 </label> </div>
+            <div> <input onclick="toggle(this)" type="checkbox" id="AMTH_106"> <label> AMTH 106 </label> </div>
+            <div> <input onclick="toggle(this)" type="checkbox" id="AMTH_108"> <label> AMTH 108 </label> </div>
+        </div> <!-- col --> 
+
+        <div class="col-md-3">
+            <div> <input onclick="toggle(this)" type="checkbox" id="CHEM_011"> <label> CHEM  11 </label> </div>
+            <div> <input onclick="toggle(this)" type="checkbox" id="PHYS_031"> <label> PHYS  31 </label> </div>
+            <div> <input onclick="toggle(this)" type="checkbox" id="PHYS_032"> <label> PHYS  32 </label> </div>
+            <div> <input onclick="toggle(this)" type="checkbox" id="PHYS_033"> <label> PHYS  33 </label> </div>
+            <div> <input onclick="toggle(this)" type="checkbox" id="ELEN_050"> <label> ELEN  50 </label> </div>
+            <div> <input onclick="toggle(this)" type="checkbox" id="ELEN_153"> <label> ELEN 153 </label> </div>
+            <div> <input onclick="toggle(this)" type="checkbox" id="ENGL_181"> <label> ENGL 181 </label> </div>
+            <div> <input onclick="toggle(this)" type="checkbox" id="ENGR_001"> <label> ENGR   1 </label> </div>
+            <br> 
+            <ul id="techElectives">  <lh> Tech Electives </lh> </ul>
+        </div> <!-- col --> 
+
+        <div class="col-md-6">
+            <div id="ADVW"></div>
+            <div id="ARTS"></div>
+            <div id="STSS"></div>
+            <div id="CVEG"></div>
+            <br> 
+            <div id="NTSC"></div>
+            <br> 
+            <div id="CTW1"></div>
+            <div id="CTW2"></div>
+            <br> 
+            <div id="CNI1"></div>
+            <div id="CNI2"></div>
+            <div id="CNI3"></div>
+            <br> 
+            <div id="RTC1"></div>
+            <div id="RTC2"></div>
+            <div id="RTC3"></div>
+            <br> 
+            <div id="DVSY"></div>
+            <div id="SOSC"></div>
+
+            <div id="ELSJ"></div>
+            <div id="ETHC"></div>
+            <div id="LANG"></div>
+            <br> 
+            <ul id="EEE"> </ul>
+        <div> <!-- col --> 
+
+    </div> <!-- row --> 
+</div> <!-- container -->
 
 
-</div> <!-- container-fluid -->
 </body>
 </html>
