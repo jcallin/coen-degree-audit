@@ -12,7 +12,8 @@ function storeData() {
 
 function loadData() {
     var temp = localStorage.getItem('CoenDegreeAduit');
-    if(temp == "null"){
+    if(temp == "null" || temp == null){
+        classLogic();
         return;
     }
     data = JSON.parse(temp);
