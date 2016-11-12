@@ -6,8 +6,17 @@
 
 // returns whether or not the parameter is array of coursesCoenMajor
 function isCoenClass(id){
-    for(var j = 0; j < coursesCoenMajor.length; j++){
-        if(id == coursesCoenMajor[j]){
+    for(var i = 0; i < coursesCoenMajor.length; i++){
+        if(id == coursesCoenMajor[i]){
+            return true;
+        }
+    }
+    return false;
+}
+
+function isAllowedInput(id){
+    for(var i = 0; i < allCourses.length; i++){
+        if(id == allCourses[i]){
             return true;
         }
     }
@@ -84,6 +93,11 @@ function isGreen(id){
 
 function addFromTextbox(){
     var input = document.getElementById('input').value;
+    if(!isAllowedInput(input)){
+        alert("This class is not in our system.\nPlease make sure the course is typed in the correct format.\nEx) COEN_010");
+        classLogic();
+        return;
+    }
     addData(input);
     classLogic();
 }
