@@ -23,6 +23,19 @@ function isAllowedInput(id){
     return false;
 }
 
+function isThirdAdd(id){
+    var count = 0;
+    for(var i = 0; i < data.length; i++){
+        if(count == 1){
+                return true;
+        }
+        if(id == data[i]){
+            count += 1;
+        }
+    }
+    return false;
+}
+
 // Adds course id to array
 function addData(id){
     data.push(id);
@@ -93,8 +106,8 @@ function isGreen(id){
 
 function addFromTextbox(){
     var input = document.getElementById('input').value;
-    if(!isAllowedInput(input)){
-        alert("This class is not in our system.\nPlease make sure the course is typed in the correct format.\nEx) COEN_010");
+    if(!isAllowedInput(input) || isThirdAdd(input)){
+        alert("This class is not in our system or you have added a class more than twice.\nAlso, please make sure the course is typed in the correct format.\nEx) COEN_010");
         classLogic();
         return;
     }
