@@ -21,25 +21,29 @@
 
 <div class="container">
 
-<div class="jumbotron">
-    <div class="row">
-        <div class="col-md-4">
-        </div> <!-- col --> 
-        <div class="col-md-4">
-            <div class="input-group">
-                <input id="input" type="text" class="form-control" placeholder="COEN_010" aria-describedby="basic-addon1">
-                <div class="input-group-btn">
-                    <button class="btn btn-default" onclick="addFromTextbox()"> Add </button>
-                </div>
-            </div> <!-- input group --> 
-        </div> <!-- col --> 
-        <div class="col-md-4"> 
-        </div> <!-- col --> 
-    </div> <!-- row --> 
-</div>
+<h1 align="center">EZ COEN Degree Audit</h1>
 
+<div class="row">
+<div class="col-md-1"> 
+</div> <!-- col --> 
+<div class="col-md-8">
+        <p align="left"><b>4 letter capitalized</b> code followed by an <b>underscore</b> followed by a <b>3 digit/letter course</b> number</p>
+    <div class="input-group">
+        <input id="input" type="text" class="form-control" placeholder="POLI_002" aria-describedby="basic-addon1">
+        <div class="input-group-btn">
+            <button class="btn btn-default" onclick="addFromTextbox()"> Add </button>
+        </div>
+    </div> <!-- input group --> 
+</div> <!-- col --> 
+<div class="col-md-3"> 
+        <h3><b>Requirements</b></h3>
+    <p>Once added, click to remove</p>
+</div> <!-- col --> 
+</div> <!-- row --> 
+
+<br>
     <div class="row">
-        <div class="col-md-3">
+            <div class="col-md-4" align="center">
             <div> <input onclick="toggle(this)" type="checkbox" id="COEN_010"> <label> COEN  10 </label> </div>
             <div> <input onclick="toggle(this)" type="checkbox" id="COEN_011"> <label> COEN  11 </label> </div>
             <div> <input onclick="toggle(this)" type="checkbox" id="COEN_012"> <label> COEN  12 </label> </div>
@@ -57,7 +61,9 @@
             <div> <input onclick="toggle(this)" type="checkbox" id="COEN_194"> <label> COEN 194 </label> </div>
             <div> <input onclick="toggle(this)" type="checkbox" id="COEN_195"> <label> COEN 195 </label> </div>
             <div> <input onclick="toggle(this)" type="checkbox" id="COEN_196"> <label> COEN 196 </label> </div>
-            <br> 
+        </div> <!-- col --> 
+
+        <div class="col-md-4" align="center">
             <div> <input onclick="toggle(this)" type="checkbox" id="MATH_011"> <label> MATH  11 </label> </div>
             <div> <input onclick="toggle(this)" type="checkbox" id="MATH_012"> <label> MATH  12 </label> </div>
             <div> <input onclick="toggle(this)" type="checkbox" id="MATH_013"> <label> MATH  13 </label> </div>
@@ -65,9 +71,6 @@
             <div> <input onclick="toggle(this)" type="checkbox" id="MATH_053"> <label> MATH  53 </label> </div>
             <div> <input onclick="toggle(this)" type="checkbox" id="AMTH_106"> <label> AMTH 106 </label> </div>
             <div> <input onclick="toggle(this)" type="checkbox" id="AMTH_108"> <label> AMTH 108 </label> </div>
-        </div> <!-- col --> 
-
-        <div class="col-md-3">
             <div> <input onclick="toggle(this)" type="checkbox" id="CHEM_011"> <label> CHEM  11 </label> </div>
             <div> <input onclick="toggle(this)" type="checkbox" id="PHYS_031"> <label> PHYS  31 </label> </div>
             <div> <input onclick="toggle(this)" type="checkbox" id="PHYS_032"> <label> PHYS  32 </label> </div>
@@ -76,39 +79,41 @@
             <div> <input onclick="toggle(this)" type="checkbox" id="ELEN_153"> <label> ELEN 153 </label> </div>
             <div> <input onclick="toggle(this)" type="checkbox" id="ENGL_181"> <label> ENGL 181 </label> </div>
             <div> <input onclick="toggle(this)" type="checkbox" id="ENGR_001"> <label> ENGR   1 </label> </div>
-            <br> 
             <ul id="techElectives">  <lh> Tech Electives </lh> </ul>
         </div> <!-- col --> 
 
-        <div class="col-md-6">
-            <h3> Requirements </h3>
-            <div id="ADVW"></div>
-            <div id="ARTS"></div>
-            <div id="STSS"></div>
-            <div id="CVEG"></div>
-            <br> 
-            <div id="NTSC"></div>
-            <br> 
-            <div id="CTW1"></div>
-            <div id="CTW2"></div>
-            <br> 
-            <div id="CNI1"></div>
-            <div id="CNI2"></div>
-            <div id="CNI3"></div>
-            <br> 
-            <div id="RTC1"></div>
-            <div id="RTC2"></div>
-            <div id="RTC3"></div>
-            <br> 
-            <div id="DVSY"></div>
-            <div id="SOSC"></div>
+        <div class="col-md-4">
+            <div align="center">
+                    <div id="ADVW"></div>
+                    <div id="ARTS"></div>
+                    <div id="STSS"></div>
+                    <div id="CVEG"></div>
+                    <br> 
+                    <div id="NTSC"></div>
+                    <br> 
+                    <div id="CTW1"></div>
+                    <div id="CTW2"></div>
+                    <br> 
+                    <div id="CNI1"></div>
+                    <div id="CNI2"></div>
+                    <div id="CNI3"></div>
+                    <br> 
+                    <div id="RTC1"></div>
+                    <div id="RTC2"></div>
+                    <div id="RTC3"></div>
+                    <br> 
+                    <div id="DVSY"></div>
+                    <div id="SOSC"></div>
 
-            <div id="ELSJ"></div>
-            <div id="ETHC"></div>
-            <div id="LANG"></div>
-            <br> 
-            <ul id="EEE"> </ul>
+                    <div id="ELSJ"></div>
+                    <div id="ETHC"></div>
+                    <div id="LANG"></div>
+                    <br> 
+                    <ul id="EEE"> </ul>
+            </div>
         <div> <!-- col --> 
+        <div class="col-md-1">
+        </div>
     </div> <!-- row --> 
 </div> <!-- container -->
 </body>
