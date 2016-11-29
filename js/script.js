@@ -93,7 +93,7 @@ function toggle(obj){
 // Sets the required text to green and creates a click-able class (click to remove) 
 function setGreen(req, id){
     document.getElementById(req).innerHTML += 
-    " - " +  '<small class="requirement" id="' + id + '"onclick="removeListElement(this)">' + id + '</small> \n';
+    " - " +  '<small class="requirement" id="' + id + '" onclick="removeListElement(this)"' + ' onmouseover="" style="cursor: pointer;">' + id + '</small> \n';
     document.getElementById(req).style.color = "green";
 }
 
